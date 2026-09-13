@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Bajaj Finserv - Bill Payment Clean Mockups</title>
+  <title>Bajaj Finserv - Refined Production Screens</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -10,39 +10,49 @@
     :root {
       --bfl-blue-primary: #005CA9;
       --bfl-blue-deep: #002D62;
-      --bfl-blue-soft: #E6F1F9;
-      --status-success: #0E9F6E;
-      --status-warning: #D97706;
-      --status-warning-bg: #FEF3C7;
-      --neutral-900: #111928;
-      --neutral-700: #374151;
-      --neutral-600: #4B5563;
-      --neutral-500: #6B7280;
-      --neutral-200: #E5E7EB;
-      --neutral-100: #F3F4F6;
+      --bfl-blue-soft: #EBF4FA;
+      
+      --status-success: #059669;
+      --status-success-bg: #ECFDF5;
+      --status-warning: #B45309;
+      --status-warning-surface: #FFFBEB;
+      --status-warning-border: #FDE68A;
+      
+      --neutral-900: #0F172A;
+      --neutral-800: #1E293B;
+      --neutral-600: #475569;
+      --neutral-500: #64748B;
+      --neutral-300: #CBD5E1;
+      --neutral-200: #E2E8F0;
+      --neutral-100: #F1F5F9;
+      --neutral-50: #F8FAFC;
       --surface-white: #FFFFFF;
-      --radius-md: 10px;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
       --radius-lg: 16px;
       --radius-pill: 9999px;
-      --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-    body { background: #FFFFFF; padding: 24px; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+    body { background: #E2E8F0; padding: 32px 16px; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
 
     .mobile-frame {
       width: 390px;
       min-height: 844px;
-      background: var(--neutral-100);
-      border-radius: 32px;
+      background: var(--neutral-50);
+      border-radius: 36px;
       overflow: hidden;
-      border: 4px solid var(--neutral-900);
+      border: 6px solid #0F172A;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
       display: flex;
       flex-direction: column;
     }
 
+    /* Standard Enterprise App Bar */
     .app-header {
-      height: 52px;
+      height: 56px;
       padding: 0 16px;
       display: flex;
       align-items: center;
@@ -50,201 +60,320 @@
       background: var(--surface-white);
       border-bottom: 1px solid var(--neutral-200);
     }
+    .app-header .header-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--neutral-900);
+      letter-spacing: -0.2px;
+    }
+    .icon-action {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--neutral-800);
+      border-radius: 50%;
+    }
+    .icon-action:hover { background: var(--neutral-100); }
 
-    .screen-content {
+    .screen-body {
       flex: 1;
-      padding: 16px;
+      padding: 20px 16px;
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
 
+    /* Cards */
     .card {
       background: var(--surface-white);
-      border-radius: var(--radius-lg);
-      padding: 18px;
+      border-radius: var(--radius-md);
+      padding: 16px;
       border: 1px solid var(--neutral-200);
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
       gap: 12px;
+    }
+
+    /* Balanced Active Card with Inset Stripe */
+    .active-bill-card {
+      position: relative;
+      border: 1px solid var(--neutral-200);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .active-bill-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #D97706;
     }
 
     .pill-badge {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
       font-size: 11px;
       font-weight: 600;
+      letter-spacing: 0.3px;
       text-transform: uppercase;
-      width: fit-content;
     }
-    .pill-badge.urgent { background: var(--status-warning-bg); color: var(--status-warning); }
+    .pill-badge.urgent { background: #FEF3C7; color: #92400E; }
     .pill-badge.info { background: var(--bfl-blue-soft); color: var(--bfl-blue-primary); }
     .pill-badge.neutral { background: var(--neutral-100); color: var(--neutral-600); }
 
+    /* Buttons */
     .btn-primary {
       background: var(--bfl-blue-primary);
       color: var(--surface-white);
       border: none;
-      border-radius: var(--radius-md);
-      padding: 14px;
+      border-radius: 8px;
+      padding: 13px 18px;
       font-size: 14px;
       font-weight: 600;
-      text-align: center;
       cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .btn-outline {
       background: transparent;
       color: var(--bfl-blue-primary);
       border: 1.5px solid var(--bfl-blue-primary);
-      border-radius: var(--radius-md);
-      padding: 12px;
-      font-size: 14px;
+      border-radius: 8px;
+      padding: 11px 16px;
+      font-size: 13px;
       font-weight: 600;
-      text-align: center;
+      cursor: pointer;
     }
 
-    .switch-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .switch-ui {
-      width: 44px; height: 24px; background: var(--bfl-blue-primary); border-radius: var(--radius-pill); position: relative;
-    }
-    .switch-ui::after {
-      content: ''; position: absolute; top: 2px; right: 2px; width: 20px; height: 20px; background: var(--surface-white); border-radius: 50%;
-    }
-
-    /* Screen 1 Hero */
-    .success-hero {
+    /* Screen 1 Clean Receipt Hero */
+    .receipt-hero {
       background: var(--bfl-blue-deep);
-      padding: 24px 20px 36px 20px;
+      padding: 36px 20px 28px 20px;
+      text-align: center;
       color: var(--surface-white);
+    }
+    .check-circle {
+      width: 44px;
+      height: 44px;
+      background: var(--status-success);
+      border-radius: 50%;
+      margin: 0 auto 12px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Screen 3 Clean Amber Alert Hero */
+    .amber-alert-card {
+      background: var(--status-warning-surface);
+      border: 1px solid var(--status-warning-border);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 8px;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
     }
-    .success-check {
-      width: 52px; height: 52px; background: var(--status-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white;
-    }
-
-    /* Screen 3 Amber Warning Hero */
-    .error-hero-amber {
-      background: var(--status-warning-bg);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      text-align: center;
+    .alert-circle {
+      width: 40px;
+      height: 40px;
+      background: #FDE68A;
+      border-radius: 50%;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 6px;
-      border: 1px solid #FCD34D;
+      justify-content: center;
+      color: #78350F;
     }
-    .warning-icon {
-      width: 48px; height: 48px; background: var(--status-warning); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold;
-    }
-    .safety-callout {
-      background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-md); padding: 12px; display: flex; gap: 10px; font-size: 12px; color: #1E40AF; line-height: 1.4;
+    .trust-banner {
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      display: flex;
+      gap: 10px;
+      font-size: 12px;
+      color: #1E40AF;
+      line-height: 1.45;
     }
   </style>
 </head>
 <body>
 
-  <!-- SCREEN 1 -->
+  <!-- SCREEN 1: POST-PAYMENT HOOK (CLEAN STACKED RECEIPTS) -->
   <div class="mobile-frame">
-    <div class="success-hero">
-      <div class="success-check">✓</div>
-      <div style="font-size: 28px; font-weight: 700;">₹1,450.00</div>
-      <div style="font-size: 13px; color: var(--neutral-200);">Paid to Torrent Power • TXN: #BFL98214</div>
+    <div class="receipt-hero">
+      <div class="check-circle">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <div style="font-size: 26px; font-weight: 700; letter-spacing: -0.5px;">₹1,450.00</div>
+      <div style="font-size: 13px; color: #94A3B8; margin-top: 4px;">Paid to Torrent Power • TXN: #BFL98214</div>
     </div>
-    <div class="screen-content">
-      <div class="card" style="margin-top: -24px; z-index: 5;">
-        <div class="pill-badge info">Smart Biller Tracking</div>
-        <div style="font-size: 15px; font-weight: 700;">Never miss your next power bill</div>
-        <div style="font-size: 12px; color: var(--neutral-600); line-height: 1.4;">
-          We've linked Torrent Power. We'll track it silently and fetch your bill around <strong>10th November</strong>.
+
+    <div class="screen-body">
+      <!-- Retention Card -->
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="pill-badge info">Smart Biller Tracking</span>
+          <span style="font-size: 11px; color: var(--neutral-500);">Est. 10th Nov</span>
         </div>
-        <div style="height: 1px; background: var(--neutral-200); margin: 4px 0;"></div>
-        <div class="switch-row">
+        <div style="font-size: 15px; font-weight: 700; color: var(--neutral-900); line-height: 1.3;">
+          Never miss your next power bill
+        </div>
+        <div style="font-size: 12px; color: var(--neutral-600); line-height: 1.45;">
+          We've linked Torrent Power. We'll track it silently and fetch your bill the moment it's generated.
+        </div>
+        <div style="height: 1px; background: var(--neutral-200); margin: 2px 0;"></div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <div style="font-size: 13px; font-weight: 600;">Send reminder on WhatsApp</div>
-            <div style="font-size: 11px; color: var(--neutral-500);">Direct 1-tap payment link when generated</div>
+            <div style="font-size: 13px; font-weight: 600; color: var(--neutral-800);">Send reminder on WhatsApp</div>
+            <div style="font-size: 11px; color: var(--neutral-500);">Direct 1-tap pay link when generated</div>
           </div>
-          <div class="switch-ui"></div>
+          <!-- Native styled switch -->
+          <div style="width: 40px; height: 22px; background: var(--bfl-blue-primary); border-radius: 9999px; position: relative; flex-shrink: 0;">
+            <div style="width: 18px; height: 18px; background: white; border-radius: 50%; position: absolute; top: 2px; right: 2px;"></div>
+          </div>
         </div>
       </div>
-      <div class="card" style="background: #F8FAFC; border: 1px dashed var(--bfl-blue-primary);">
+
+      <!-- Soft Autopay Bridge -->
+      <div class="card" style="background: var(--neutral-50); border: 1px dashed var(--bfl-blue-primary);">
         <div style="display: flex; justify-content: space-between; align-items: center;">
           <span style="font-size: 13px; font-weight: 600; color: var(--bfl-blue-deep);">Prefer Hands-Free Payments?</span>
           <span class="pill-badge neutral">No Mandate</span>
         </div>
         <div style="font-size: 12px; color: var(--neutral-600); line-height: 1.4;">
-          Set safety cap of <strong>₹2,000</strong>. Approve with 1 tap without UPI PIN.
+          Set a safety cap of <strong>₹2,000</strong>. Approve with 1 tap when due—no standing bank debit[cite: 1].
         </div>
-        <button class="btn-outline" style="padding: 8px; font-size: 12px;">Enable 1-Tap Pay</button>
+        <button class="btn-outline">Enable 1-Tap Pay</button>
       </div>
+
       <button class="btn-primary" style="margin-top: auto;">Done</button>
     </div>
   </div>
 
-  <!-- SCREEN 2 -->
+  <!-- SCREEN 2: BILLS HUB WITH CRISP VECTOR ICONS & INSET ACCENT -->
   <div class="mobile-frame">
     <div class="app-header">
-      <div style="font-weight: 600;">←</div>
-      <div style="font-size: 15px; font-weight: 600;">Bills & Utilities</div>
-      <div>🔍</div>
+      <div class="icon-action">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </div>
+      <div class="header-title">Bills & Utilities</div>
+      <div class="icon-action">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </div>
     </div>
-    <div class="screen-content">
-      <div style="font-size: 12px; font-weight: 700; color: var(--neutral-500);">PENDING BILLS (1)</div>
-      <div class="card" style="border-left: 4px solid var(--status-warning);">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 14px; font-weight: 700;">Torrent Power Ltd</span>
+
+    <div class="screen-body">
+      <div style="font-size: 12px; font-weight: 700; color: var(--neutral-500); letter-spacing: 0.5px;">PENDING BILLS (1)</div>
+      
+      <!-- Balanced Active Card -->
+      <div class="card active-bill-card" style="padding-left: 18px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--neutral-900);">Torrent Power Ltd</div>
+            <div style="font-size: 11px; color: var(--neutral-500); margin-top: 2px;">Consumer No: 102938475</div>
+          </div>
           <span class="pill-badge urgent">Due in 4 Days</span>
         </div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 6px;">
           <div>
-            <div style="font-size: 11px; color: var(--neutral-500);">Early Pay: Save ₹10 by Oct 03</div>
-            <div style="font-size: 22px; font-weight: 800; color: var(--bfl-blue-deep);">₹1,620.00</div>
+            <div style="font-size: 11px; color: #059669; font-weight: 600;">Early Pay: Save ₹10 by Oct 03</div>
+            <div style="font-size: 22px; font-weight: 800; color: var(--bfl-blue-deep); margin-top: 2px;">₹1,620.00</div>
           </div>
-          <button class="btn-primary" style="padding: 10px 16px; font-size: 13px;">Pay Now</button>
+          <button class="btn-primary" style="padding: 10px 18px; font-size: 13px;">Pay Now</button>
         </div>
       </div>
-      <div style="font-size: 12px; font-weight: 700; color: var(--neutral-500); margin-top: 8px;">SAVED UTILITIES</div>
-      <div class="card" style="padding: 14px; flex-direction: row; justify-content: space-between; align-items: center;">
+
+      <div style="font-size: 12px; font-weight: 700; color: var(--neutral-500); letter-spacing: 0.5px; margin-top: 8px;">SAVED UTILITIES</div>
+
+      <!-- Settled Item -->
+      <div class="card" style="padding: 14px 16px; flex-direction: row; justify-content: space-between; align-items: center;">
         <div>
-          <div style="font-size: 13px; font-weight: 600;">Airtel Postpaid</div>
-          <div style="font-size: 11px; color: var(--neutral-500);">Auto-fetched</div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--neutral-900);">Airtel Postpaid</div>
+          <div style="font-size: 11px; color: var(--neutral-500); margin-top: 1px;">98201-XXXXX • Auto-fetch active</div>
         </div>
         <span class="pill-badge neutral" style="color: var(--status-success);">● Paid</span>
       </div>
     </div>
   </div>
 
-  <!-- SCREEN 3 (WITH AMBER WARNING INSTEAD OF RED) -->
+  <!-- SCREEN 3: PAYMENT STATUS WITH REFINED AMBER WARNING & SVG SHIELD -->
   <div class="mobile-frame">
     <div class="app-header">
-      <div style="font-weight: 600;">✕</div>
-      <div style="font-size: 15px; font-weight: 600;">Payment Status</div>
-      <div></div>
+      <div class="icon-action">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+      <div class="header-title">Payment Status</div>
+      <div style="width: 36px;"></div>
     </div>
-    <div class="screen-content">
-      <div class="error-hero-amber">
-        <div class="warning-icon">!</div>
-        <div style="font-size: 16px; font-weight: 700; color: var(--status-warning);">Payment Incomplete</div>
-        <div style="font-size: 12px; color: var(--neutral-600);">HDFC Bank UPI servers did not respond in time</div>
+
+    <div class="screen-body">
+      <!-- Amber Status Hero -->
+      <div class="amber-alert-card">
+        <div class="alert-circle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#78350F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div style="font-size: 16px; font-weight: 700; color: #78350F;">Payment Incomplete</div>
+        <div style="font-size: 12px; color: #92400E; max-width: 260px; line-height: 1.4;">
+          HDFC Bank UPI servers did not respond in time[cite: 1].
+        </div>
       </div>
-      <div class="safety-callout">
-        <span>🛡️</span>
-        <div><strong>Your money is safe.</strong> If debited, your bank will reverse ₹1,620 automatically within 2 hours.</div>
+
+      <!-- Trust Reassurance Banner with Semantic Shield -->
+      <div class="trust-banner">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+        <div>
+          <strong style="color: #1E3A8A;">Your money is safe.</strong> If debited, your bank will reverse ₹1,620 automatically within 2 hours.
+        </div>
       </div>
+
+      <!-- Bill Context Retained -->
       <div class="card">
-        <div style="display: flex; justify-content: space-between;"><span style="font-size: 12px; color: var(--neutral-500);">Biller</span><span style="font-size: 13px; font-weight: 600;">Torrent Power</span></div>
-        <div style="display: flex; justify-content: space-between;"><span style="font-size: 12px; color: var(--neutral-500);">Amount Due</span><span style="font-size: 15px; font-weight: 700;">₹1,620.00</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--neutral-500);">Biller</span>
+          <span style="font-size: 13px; font-weight: 600; color: var(--neutral-900);">Torrent Power Ltd</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--neutral-500);">Amount Due</span>
+          <span style="font-size: 15px; font-weight: 700; color: var(--neutral-900);">₹1,620.00</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--neutral-500);">Due Date</span>
+          <span style="font-size: 13px; font-weight: 600; color: var(--status-warning);">12th October</span>
+        </div>
       </div>
+
+      <!-- Recovery Actions -->
       <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
         <button class="btn-primary">Retry with HDFC Bank</button>
         <button class="btn-outline">Pay Using Another UPI App</button>
